@@ -9,8 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - name: Install
+        run: npm ci
       - name: Update gist
-        uses: jasonkayzk/waka-box@master
+        run: node ./index.js  --unhandled-rejections=strict
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GIST_ID: 7f2a9f0fd33d5ceea2842fd59ae116b7
